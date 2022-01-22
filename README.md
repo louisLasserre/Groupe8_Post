@@ -1,2 +1,2 @@
 # Groupe8_Post
-/// VERSION FINALE TOUS LES SCRIPTS PEUVENT ETRE UPLOADES
+// Version finale, tous les scripts peuvent être uploadés 
