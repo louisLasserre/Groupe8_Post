@@ -1,0 +1,85 @@
+body{
+    background-color: rgb(245, 245, 245);
+    margin: 0;
+    padding: 0;
+    
+}
+h3, h4{
+    color: white;
+    list-style-type: none;
+}
+section > a{
+    text-decoration: none;
+}
+header{
+    width: 100%;
+    position: fixed;top: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(42, 113, 245);
+    height: 50px;
+    
+}
+header > a, header > h5{
+    color: white;
+    padding: 0 20px 0 20px;
+}
+.OnePost{
+    margin-top: 50px;
+    display: block;
+}
+
+/* posts  */
+
+.SecPost{
+    width: 70vw;
+    margin: 70px auto;
+
+}
+.post{
+    border-radius: 8px ;
+    width: 100%;
+    margin: 30px 0;
+    background-color: rgb(170, 170, 170);
+    padding-bottom: 10px;
+
+}
+.NameTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color:  rgb(89, 145, 250);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+/*    creer posts      */
+
+.createPost{
+    margin: 80px auto;
+    width: 50vw;
+    background-color: rgb(170, 170, 170);
+    border-radius: 8px;
+}
+.createPost > form {
+    margin: 0 auto;
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+form > div{
+    margin: 20px 0;
+}
+.formText{
+    color: white;
+    margin: 10px 0;
+    font-size: 20px;
+
+}
