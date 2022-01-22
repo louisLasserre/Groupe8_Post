@@ -35,6 +35,9 @@ function connect_user($email) {
 
     if($user) {
         setcookie('user', $user ['eMailUser']);
+        return true;
+    }else{
+        return false;
     }
     
 }

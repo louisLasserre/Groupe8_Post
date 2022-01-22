@@ -67,6 +67,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 ?>
 
     <section class="SecPost">
+        <h2 style="color: black;display:block;margin:0 auto;width:fit-content;">Tous les posts</h2>
     
 
 <?php

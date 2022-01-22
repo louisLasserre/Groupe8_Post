@@ -36,6 +36,7 @@ header > a, header > h5{
 .SecPost{
     width: 70vw;
     margin: 70px auto;
+    
 
 }
 .post{
@@ -82,4 +83,7 @@ form > div{
     margin: 10px 0;
     font-size: 20px;
 
+}
+.erreur{
+    color: rgb(235, 0, 0);
 }

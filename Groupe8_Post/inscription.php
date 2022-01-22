@@ -4,6 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["submit"])) {
       echo ($_POST["name"] . $_POST["email"]); 
       insert_user($_POST["email"], $_POST["name"]);
+      header('Location: ./index.php');
     }
 }
 ?>

@@ -157,18 +157,53 @@ function regroup($libPost, $tag){
 
 }
 
+
+
+//POUR ÉVITER des erreurs, deux posts ne peuvent pas avoir le même libellé
+//cette fonction vérifie si un post contient déja le même libellé
+function checkLibPost($libPost){
+    global $db;
+    try {
+        $db->beginTransaction();
+        
+        // insert
+        $query = 'SELECT * FROM POST WHERE libPost = ?;';
+        $request = $db->prepare($query);
+        
+		$request->execute([$libPost]);
+        
+        $posts = $request->fetch();
+        $db->commit();
+        $request->closeCursor();
+        if($posts){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    catch (PDOException $e) {
+        $db->rollBack();
+        $request->closeCursor();
+        die('Erreur insert CLASSE : ' . $e->getMessage());
+    }
+
+}
+
+
 //**************************FIN des FONCTIONS********************************* */
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
         
     if(isset($_POST["postValues"])){
         
+        $libValid = checkLibPost($_POST["libPost"]);
+        if($libValid == false){
+            createPost($_POST["libPost"], $_POST["descriptPost"], $_POST["resumPost"]);
+            tag($_POST["tag"]);
         
-
-        createPost($_POST["libPost"], $_POST["descriptPost"], $_POST["resumPost"]);
-        tag($_POST["tag"]);
+            regroup($_POST["libPost"], $_POST["tag"]);
+        }
         
-        regroup($_POST["libPost"], $_POST["tag"]);
         
     }
     
@@ -211,6 +246,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <div>
                 <h4 class="formText">Libellé du post</h4>
                 <input type="text" name="libPost" size="40"required>
+                <p class="erreur"> <?php if($libValid == true){echo('Erreur : Un post portant ce nom existe déja');}?></p>
             </div>
             
             <div>

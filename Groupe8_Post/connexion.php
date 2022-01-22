@@ -3,8 +3,14 @@ require_once __DIR__.'/back.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["submit"])) {
       
-      connect_user($_POST["email"]);
-      header('Location: ./afficherPost.php' );
+      
+        if(connect_user($_POST["email"]) == true){
+            header('Location: ./afficherPost.php' );
+        }else{
+            echo('addresse mail inconnue');
+        }
+
+      
     }
 }
 ?>
